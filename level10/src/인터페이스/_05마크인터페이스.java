@@ -13,6 +13,8 @@ class Unit{
 		MAX_HP = hp;
 		this.hp = MAX_HP;
 	}
+	
+	
 }
 
 class GroundUnit extends Unit{
@@ -117,7 +119,9 @@ public class _05마크인터페이스 {
 		dropShip.hp -= 30;
 		soldier.hp -= 40;
 		
-		scv.repairUnit(scv );
+		scv.repairUnit(scv);
+		scv.repairUnit(tank);
+		//scv.repairUnit(soldier);
 
 	}
 
