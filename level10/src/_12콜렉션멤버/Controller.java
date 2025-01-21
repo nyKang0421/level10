@@ -7,6 +7,7 @@ public class Controller {
 	
 	private Map<Menu, Action> mapList;
 	Utils utils = Utils.getInstance();
+	MemberDAO dao = MemberDAO.getMemberDAO();
 	
 	public Controller() {
 		mapList = new HashMap<Menu, Action>();
@@ -19,8 +20,8 @@ public class Controller {
 		mapList.put(Menu.LOAD, new ActionLoad());
 	}
 	
-	public Action getAction(Menu key) {
-		return mapList.get(key);
+	public Action getAction(String string) {
+		return mapList.get(Menu.getMenu(string));
 	}
 	
 	public void run() {
@@ -34,30 +35,36 @@ public class Controller {
 			System.out.println("6) 로드"); // member.txt 로드
 			System.out.println("0) 종료");
 			int sel = utils.getIntValue("메뉴",0,6);
+			if(dao.isNullCheck()) {
+				if(sel>1&&sel<6) {
+					utils.printErr("존재하는 멤버 목록이 없음");
+					continue;
+				}
+			}
 			if (sel == 1) {
 				// 추가하는 기능 DAO
-				getAction(Menu.INSERT).excute();
+				getAction("insert").excute();
 
 			}else if(sel == 2){
-				getAction(Menu.DELETE).excute();
+				getAction("delete").excute();
 				
 			}else if(sel == 3){
-				getAction(Menu.UPDATE).excute();
+				getAction("update").excute();
 				
 			}else if(sel == 4){
-				getAction(Menu.PRINT).excute();
+				getAction("print").excute();
 				
 			}else if(sel == 5){
-				getAction(Menu.SAVE).excute(); 
+				getAction("save").excute(); 
 				
 			}else if(sel == 6){
-				getAction(Menu.LOAD).excute(); 
+				getAction("load").excute(); 
 				
 			}else if(sel == 0){
-				utils.pringMsg("프로그램 종료");
+				utils.printMsg("프로그램 종료");
+				utils.closeScanner();
 				break;
 			}
-			break;
 		}
 	}
 

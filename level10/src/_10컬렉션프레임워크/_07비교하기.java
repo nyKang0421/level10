@@ -49,8 +49,6 @@ class Person implements Comparable<Person>{
 	}
 
 
-
-
 	@Override
 	public String toString() {
 		return String.format("no = %d , name = %s , age = %d \n", no,name,age);

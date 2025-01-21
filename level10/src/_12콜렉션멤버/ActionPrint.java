@@ -4,8 +4,12 @@ public class ActionPrint implements Action {
 
 	@Override
 	public void excute() {
-		// TODO Auto-generated method stub
+		Utils utils = Utils.getInstance();
+		MemberDAO dao = MemberDAO.getMemberDAO();
 		
+		System.out.println("==== [ 전체회원정보 ] ====");
+		
+		dao.printAllMember();
 	}
 	
 	

@@ -4,8 +4,10 @@ public class ActionLoad  implements Action  {
 
 	@Override
 	public void excute() {
-		// TODO Auto-generated method stub
-		
+		Utils utils = Utils.getInstance();
+		MemberDAO dao = MemberDAO.getMemberDAO();
+		System.out.println("==== [ 회원불러오기 ] ====");
+		dao.loadData();
 	}
 
 }

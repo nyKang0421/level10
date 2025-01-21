@@ -4,8 +4,11 @@ public class ActionUpdate implements Action  {
 
 	@Override
 	public void excute() {
-		// TODO Auto-generated method stub
+		Utils utils = Utils.getInstance();
+		MemberDAO dao = MemberDAO.getMemberDAO();
 		
+		System.out.println("==== [ 회원수정 ] ====");
+		dao.updateAMember();
 	}
 
 }
