@@ -43,7 +43,6 @@ public class Item {
 	public String toString() {
 		return String.format("%s %s %s %s원", itemNo,category,name,price);
 	}
-	
 	@Override
 	public int hashCode() {
 		return Objects.hash(category, itemNo, name, price);
@@ -60,6 +59,8 @@ public class Item {
 		return Objects.equals(category, other.category) && itemNo == other.itemNo && Objects.equals(name, other.name)
 				&& price == other.price;
 	}
+	
+
 
 
 }

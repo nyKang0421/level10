@@ -77,7 +77,7 @@ public class _05스트림_개념 {
 						.map(i -> i+"")
 						.collect(Collectors.joining(", "));
 		
-		System.out.println();
+		System.out.println(result);
 		
 	}
 
