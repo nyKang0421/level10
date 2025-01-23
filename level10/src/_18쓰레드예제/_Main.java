@@ -10,6 +10,7 @@ public class _Main {
 		Arrays.stream("지수,제니,로제,리사".split(",")).forEach(s -> {
 			threads.add(new Thread(new CustomerRun(s, coffeeMachine)));
 		});
+		
 
 		for (Thread thread : threads) {
 			thread.start();
@@ -25,6 +26,17 @@ public class _Main {
 
 		} catch (InterruptedException e) {
 		}
+		
+		try {
+			Thread.sleep(1000);
+			//CoffeeMachine.turnOff();
 
+		} catch (InterruptedException e) {
+		}
+		
+		for (Thread thread : threads) {
+			System.out.println(thread.isAlive());
+		}
+		System.out.println(Coffeeshop.isAlive());
 	}
 }

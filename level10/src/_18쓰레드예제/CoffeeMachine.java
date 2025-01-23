@@ -29,18 +29,24 @@ public class CoffeeMachine {
 			System.out.printf("[%d] (O ^ O)a %s 테이크아웃%n", cups, customer.name);
 			cups--;
 		}
-
+		
+		if (isOff) {
+			Thread.currentThread().interrupt();
+			return;
+		}
+		
+		
 		notifyAll();
 		try {
-			wait();
+			if(!isOff)wait();
 		} catch (InterruptedException e) {
 		}
+		
 	}
 
 	synchronized public void fill() {
 
 		if (isOff) {
-
 			Thread.currentThread().interrupt();
 			return;
 		}
@@ -56,11 +62,12 @@ public class CoffeeMachine {
 			System.out.printf("[%d] ✅ 커피 채워넣음%n", cups);
 			cups = CUP_MAX;
 		}
-
+		
 		notifyAll();
 		try {
-			wait();
+			if(!isOff)wait();
 		} catch (InterruptedException e) {
 		}
+		
 	}
 }

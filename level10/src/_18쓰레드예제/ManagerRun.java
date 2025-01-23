@@ -12,12 +12,13 @@ public class ManagerRun implements Runnable {
     @Override
     public void run() {
         while (true) {
-            coffeeMachine.fill();
-            try { Thread.sleep(10);
-            } catch (InterruptedException e) {
+        	coffeeMachine.fill();
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
             	System.out.println(" 메니저는 퇴근합니다 ");
             	return;
-            }
+            } 
         }
     }
 }

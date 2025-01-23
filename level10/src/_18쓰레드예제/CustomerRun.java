@@ -18,7 +18,7 @@ public class CustomerRun implements Runnable {
 			} catch (InterruptedException e) {
 				System.out.println(name + ":  앗 문닫았네 ");
 				return;
-			}
+			} 
 		}
 
 	}
